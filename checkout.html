@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Check out page</title>
+    <link rel="stylesheet" href="checkout.css">
+    <script src="checkout.js" defer></script>
+</head>
+
+<body>
+    <!-- preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="spinner">
+            </div>
+            <img src="" alt="" class="preloader-image">
+        </div>
+    </div>
+    <header>
+        <div class="head_logo">
+            <img src="https://flora.irpinnovative.com/assets/images/icon/logo/FD7.svg" alt="logo">
+        </div>
+    </header>
+    <div class="page_body">
+        <div class="main_division">
+            <div class="container" id="login-division-container">
+                <div class="division_heading" id="old-division-heading">
+                    <h5 style="margin-left: 1rem;"><i class="icon">1</i></h5>
+                    <h5 class="heading_text">LOGIN OR SIGNUP</h5>
+                    <span id="savedIndicator" style="color: blue; display: none;">✔</span>
+                </div>
+                <div class="login-container" id="login-container">
+                    <div class="login-form">
+                        <form action="#">
+                            <label for="email-mobile">Enter Email/Mobile number</label>
+                            <div class="input-group form-group">
+                                <span class="country-code">+91</span>
+                                <input type="text" id="email-mobile" placeholder="--here--" required>
+                                <a href="#" class="change-link" id="change-link" style="display: none;">Change?</a>
+                            </div>
+                            <div id="otp-section" style="display: none;">
+                                <label for="otp">Enter OTP</label>
+                                <div class="input-group form-group">
+                                    <input type="text" id="otp" placeholder="--here--" required>
+                                    <a href="#" class="resend-link">Resend?</a>
+                                </div>
+                            </div>
+                            <span>By continuing, you agree to Flora Daisy's <a href="#">Terms of Use</a> and <a
+                                    href="#">Privacy Policy</a>.</span>
+                            <button type="button" id="continue-button" class="btn">CONTINUE</button>
+                            <button type="submit" id="login-button" class="btn" style="display: none;">LOGIN</button>
+                            <button type="button" id="signin-button" class="btn" style="display: none;">SIGN IN</button>
+                        </form>
+                    </div>
+                    <div class="login-benefits">
+                        <h3>Advantages of our secure login</h3>
+                        <ul>
+                            <li>🛒 Easily Track Orders, Hassle free Returns</li>
+                            <li>🔔 Get Relevant Alerts and Recommendation</li>
+                            <li>⭐ Wishlist, Reviews, Ratings and more.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="logged-in-info" style="display: none;">
+                    <div>
+                        <div class="division_heading" style=" background:none">
+                            <h5 style="margin-left: 1rem;"><i class="icon"
+                                    style="background-color:#447eeb; color: white;">1</i></h5>
+                            <h5 class="heading_text" style="color: black;">LOGIN</h5>
+                            <span id="savedIndicator">✔</span>
+                        </div>
+                        <div class="logged-in-info-details">
+                            <span id="logged-in-name"></span>
+                            <span id="logged-in-phone"></span>
+                        </div>
+                    </div>
+                    <button id="change-link-logged-in" class="btn">CHANGE</button>
+                </div>
+            </div>
+            <div class="container" id="address_division_container">
+                <div id="address_division" class="address_division card-body" style="padding: 0;">
+                    <div class="division_heading" id="address_division_heading">
+                        <h5 style="margin-left: 1rem;"><i class="icon">2</i></h5>
+                        <h5 class="heading_text">DELIVERY ADDRESS</h5>
+                        <span id="savedIndicator" style="color: blue; display: none;">✔</span>
+                    </div>
+                    <!-- Saved Address Section -->
+                    <div id="savedAddresses" style="display:none;">
+                        <div id="savedAddressList" style="margin-top: 1rem;"></div>
+                    </div>
+                    <form id="addressForm" action="" method="get" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-2">
+                                <div data-mdb-input-init class="form-outline form-group">
+                                    <label class="form-label" for="Firstname">Name</label>
+                                    <input type="text" id="Firstname" class="form-control" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-2">
+                                <div data-mdb-input-init class="form-outline form-group">
+                                    <label class="form-label" for="Phonenumber">Phone Number</label>
+                                    <input type="text" id="Phonenumber" class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-2 form-group">
+                                <label class="form-label" for="pincode">Pincode</label>
+                                <input type="text" id="pincode" class="form-control" required />
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-2 form-group">
+                                <label class="form-label" for="locality">Locality</label>
+                                <input type="text" id="locality" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-8 mb-2 form-group">
+                            <label class="form-label" for="address">Address</label>
+                            <input type="text" id="address" class="form-control" style="height: 4rem;" required />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-2 form-group">
+                                <label class="form-label" for="city">City</label>
+                                <input type="text" id="city" class="form-control" required />
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-2 form-group">
+                                <label class="form-label" for="state">State</label>
+                                <input type="text" id="state" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-2 form-group">
+                                <label class="form-label" for="landmark">Landmark (optional)</label>
+                                <input type="text" id="landmark" class="form-control" />
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-2 form-group">
+                                <label class="form-label" for="alternatePhonenumber">Alternate Phone (optional)</label>
+                                <input type="text" id="alternatePhonenumber" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-start align-items-center">
+                            <button id="saveButton" type="submit" class="btn">SAVE</button>
+                            <a href="#" id="cancelButton">CANCEL</a>
+                        </div>
+                    </form>
+                </div>
+                <div id="selectedAddress" class="selectedAddress" style="display: none;">
+                    <div>
+                        <div class="selected_heading">
+                            <h5 style="margin-left: 1rem;"><i class="icon" style="background-color: #447eeb;">2</i></h5>
+                            <h5 class="heading_text">DELIVERY ADDRESS</h5>
+                            <span id="savedIndicator" style="color: blue;">✔</span>
+                        </div>
+                        <div id="selectedAddressText"></div>
+                    </div>
+                    <button id="changeSelectedAddressButton" class="btn btn-link">CHANGE</button>
+                </div>
+            </div>
+            <div class="container" id="addAddressButton-container" style="display: none;">
+                <button id="addAddressButton" class=" btn-link" style="color: #007bff; display: none;">
+                    <i class="fa fa-plus"></i>ADD NEW ADDRESS
+                </button>
+            </div>
+            <div class="container" id="summary_division_container">
+                <div class="summary_division" id="order-summary">
+                    <div class="division_heading" id="summary-division-heading" style="width: 100%;">
+                        <h5 style="margin-left: 1rem;"><i class="icon">3</i></h5>
+                        <h5 class="heading_text">ORDER SUMMARY</h5>
+                    </div>
+                    <div class="order-containers" id="order-containers" style="display: none;">
+                        <div class="order-header">
+                            <p style="font-weight: 500;">You can continue to place order with following available items.
+                            </p>
+                        </div>
+                        <div class="">
+                            <div class="order-container">
+                                <div class="delivery_address">
+                                    <div class="product-info">
+                                        <div><img
+                                                src="https://flora.irpinnovative.com/upload/productimg/65e58579adcf0_100roses.jpg"
+                                                alt="Product Image"></div>
+                                        <div class="product-details">
+                                            <div class="product-name">Bouquet Rose</div>
+                                            <div class="product-disc">30 Red Roses</div>
+                                            <div class="price">
+                                                ₹1040 <span class="discount">₹1,300</span> 20% Off
+                                            </div>
+                                            <div>+ ₹29 Secured Packaging Fee</div>
+                                        </div>
+                                    </div>
+                                    <div class="delivery-options">
+                                        <div class="delivery-option">
+                                            <label><input type="radio" name="delivery" value="free" checked>Fast
+                                                Delivery | ₹80</label>
+                                        </div>
+                                        <div class="delivery-option">
+                                            <label><input type="radio" name="delivery" value="11pm"> Normal Delivery |
+                                                ₹40 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_count">
+                                    <div class="decrease_prod">
+                                        <button onclick="decreaseCount()">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="total_count" id="totalCount">1</div>
+                                    <div class="increase_prod">
+                                        <button onclick="increaseCount()">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <h4><a href="#" onclick="removeProduct()">REMOVE</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary_division simplified-summary" id="simplified-summary" style="display: none;">
+                    <div>
+                        <div class="division_heading" style=" background:none">
+                            <h5 style="margin-left: 1rem;"><i class="icon"
+                                    style="background-color:#447eeb; color: white;">3</i></h5>
+                            <h5 class="heading_text" style="color: black;">ORDER SUMMARY</h5>
+                            <span id="savedIndicator">✔</span>
+                        </div>
+                        <div class="order-header">
+                            <p style="font-weight: 500;">8 Items</p>
+                        </div>
+                    </div>
+                    <button class="change-button btn" onclick="editOrder()">CHANGE</button>
+                </div>
+            </div>
+            <div class="container" id="price_summary_division_container" style="display: none;">
+                <div class="price_summary_divi" id="price_summary_divi" style="display: none;">
+                    <div class="price-details-inner" id="price-details-inner" style="display: none;">
+                        <h3>PRICE DETAILS</h3>
+                        <hr>
+                        <div class="item">
+                            <span>Price (8 items)</span>
+                            <span>&#8377;1,69,785</span>
+                        </div>
+                        <div class="item">
+                            <span>Discount</span>
+                            <span style="color: green;">- &#8377;84,136</span>
+                        </div>
+                        <div class="item">
+                            <span>Coupons for you</span>
+                            <span style="color: green;">- &#8377;368</span>
+                        </div>
+                        <div class="item">
+                            <span>Delivery Charges</span>
+                            <span style="color: green;">Free</span>
+                        </div>
+                        <div class="item">
+                            <span>Secured Packaging Fee</span>
+                            <span>&#8377;176</span>
+                        </div>
+                        <hr>
+                        <div class="item total">
+                            <span>Total Amount</span>
+                            <span>&#8377;85,457</span>
+                        </div>
+                        <div class="item savings">
+                            <span>You will save &#8377;84,328 on this order</span>
+                        </div>
+                        <div class="note">
+                            <i class="fas fa-shield-alt fa-2x"></i>
+                            <span>Safe and Secure Payments. Easy returns. 100% Authentic products.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="confirmation-mail-container" style="display: none;">
+                <div class="confirmation_mail">
+                    <span>Order confirmation email will be sent to <strong>abc0987766544@gmail.com</strong></span>
+                    <button id="continueOrder" class="btn" onclick="continueOrder()">CONTINUE</button>
+                </div>
+            </div>
+            <div class="container" id="payment_division_container">
+                <div class="payment_division" id="payment_division">
+                    <div class="division_heading" style="width: 100%;">
+                        <h5 style="margin-left: 1rem;"><i class="icon">4</i></h5>
+                        <h5 class="heading_text">PAYMENT OPTIONS</h5>
+                    </div>
+                    <div class="payment-options" id="payment-options" style="display: none;">
+                        <div class="option">
+                            <input type="radio" id="upi" name="payment" checked>
+                            <label for="upi"><i class="fab fa-cc-paypal"></i>UPI</label>
+                            <div class="sub-options">
+                                <p>Choose an option</p>
+                                <input type="radio" id="phonepe" name="upi-option">
+                                <label for="phonepe">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M10.206 9.941h2.949v4.692c-.402.201-.938.268-1.34.268c-1.072 0-1.609-.536-1.609-1.743zm13.47 4.816c-1.523 6.449-7.985 10.442-14.433 8.919C2.794 22.154-1.199 15.691.324 9.243C1.847 2.794 8.309-1.199 14.757.324c6.449 1.523 10.442 7.985 8.919 14.433m-6.231-5.888a.887.887 0 0 0-.871-.871h-1.609l-3.686-4.222c-.335-.402-.871-.536-1.407-.402l-1.274.401c-.201.067-.268.335-.134.469l4.021 3.82H6.386c-.201 0-.335.134-.335.335v.67c0 .469.402.871.871.871h.938v3.217c0 2.413 1.273 3.82 3.418 3.82c.67 0 1.206-.067 1.877-.335v2.145c0 .603.469 1.072 1.072 1.072h.938a.43.43 0 0 0 .402-.402V9.874h1.542c.201 0 .335-.134.335-.335z" />
+                                    </svg> PhonePe
+                                </label><br>
+                                <button type="button" id="phonepe-continue" class="btn"
+                                    style="display: none;">CONTINUE</button><br>
+
+                                <input type="radio" id="upi-id" name="upi-option">
+                                <label for="upi-id">Your UPI ID</label><br>
+                                <input type="text" id="upi-id-number" style="display: none;">
+                                <a href="#" id="upi-id-number-verify" style="display: none;">VERIFY</a>
+                                <button type="button" class="btn" id="upi-id-pay"
+                                    style="display: none;">PAY</button><br>
+                            </div>
+                            <small>
+                                Pay by any UPI app
+                            </small>
+                        </div>
+                        <hr>
+                        <div class="option">
+                            <input type="radio" id="wallets" name="payment">
+                            <label for="wallets"><i class="fab fa-google-wallet"></i>Wallets</label>
+                        </div>
+                        <hr>
+                        <div class="option">
+
+                            <input type="radio" name="payment" id="creditCardRadio">
+                            <label for="creditCardRadio"><i class="	fas fa-credit-card"></i>Credit / Debit / ATM
+                                Card</label>
+
+                            <div class="payment-details" id="paymentDetails" style="display: none;">
+                                <label for="cardNumber">Enter Card Number</label>
+                                <input type="text" id="cardNumber" name="cardNumber">
+                                <div class="card_validation">
+                                    <div class="valid_section">
+                                        <label for="validMonth">Valid thru</label>
+                                        <select id="validMonth" name="validMonth">
+                                            <option value="">MM</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                        <select id="validYear" name="validYear">
+                                            <option value="">YY</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <div class="cvv_section"
+                                        style="display: flex; flex-direction: row; align-items: center;">
+                                        <div><label for="cvv">CVV</label></div>
+                                        <div><input type="text" id="cvv" name="cvv" maxlength="4"></div>
+                                        <div><button id="cvvInfoButton" class="btn"><i
+                                                    class="fa fa-question"></i></button></div>
+                                    </div>
+                                </div>
+                                <div class="popup" id="cvvPopup">
+                                    <div class="card">
+                                        <img src="images/ccv.jpeg" alt="Card Image" class="card-image">
+                                        <p class="description">What is CVV?</p>
+                                        <p class="info">The CVV number is the last three digits on the back of your card
+                                        </p>
+                                        <button class="close-btn btn" id="closePopupButton">Close</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn">PAY</button>
+                            </div>
+                            <small>Add and Secure cards as per RBI guidelines</small>
+                        </div>
+                        <hr>
+                        <div class="option">
+                            <input type="radio" id="netbanking" name="payment">
+                            <label for="netbanking"><i class="fab fa-paypal"></i> Net Banking</label>
+                            <div class="netbanking-options" id="netbankingOptions" style="display: none;">
+                                <p>Popular Banks</p>
+
+                                <label for="hdfc">
+                                    <input type="radio" id="hdfc" name="netbanking-option">
+                                    <img src="images/hdfc.png" alt="HDFC Bank"> HDFC Bank
+                                </label>
+
+                                <label for="icici">
+                                    <input type="radio" id="icici" name="netbanking-option">
+                                    <img src="images/icici.png" alt="ICICI Bank" width="40px" height="30px"> ICICI Bank
+                                </label>
+
+                                <label for="sbi">
+                                    <input type="radio" id="sbi" name="netbanking-option">
+                                    <img src="images/sbi.png" alt="State Bank of India"> State Bank of India
+                                </label>
+
+                                <label for="axis">
+                                    <input type="radio" id="axis" name="netbanking-option">
+                                    <img src="images/axi.png" alt="Axis Bank"> Axis Bank
+                                </label>
+
+                                <label for="kotak">
+                                    <input type="radio" id="kotak" name="netbanking-option">
+                                    <img src="images/kotak.png" alt="Kotak Mahindra Bank"> Kotak Mahindra Bank
+                                </label>
+
+                                <p>Other Banks</p>
+                                <select id="other-banks">
+                                    <option value="">--Select Bank--</option>
+                                    <!-- Add other bank options here -->
+                                </select>
+                                <button type="button" class="btn">PAY</button>
+                            </div>
+                            <small>This instrument has low success, use UPI or cards for better experience</small>
+                        </div>
+                        <hr>
+                        <div class="option">
+                            <input type="radio" id="cod" name="payment">
+                            <label for="cod" style="margin-bottom: 1rem;"><i class="fa fa-money"></i>Cash on
+                                Delivery</label>
+                            <div id="codOptions" style="display: none;">
+                                <div id="verificationCodeContainer">
+                                    <label for="verificationCode">Verification Code:</label>
+                                    <span id="verificationCode"></span>
+                                </div>
+                                <input type="text" id="verificationInput" placeholder="Enter the 4-digit code"><br>
+                                <button type="button" class="btn" style="margin-bottom: 2rem;"
+                                    onclick="validateCode()">CONFIRM ORDER</button>
+                                <p id="error" style="color: red; display: none;">Incorrect code. Please try again.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="price_summary_division" id="price_summary_division">
+            <div class="price-details" id="price-details">
+                <h3>PRICE DETAILS</h3>
+                <hr>
+                <div class="item">
+                    <span>Price (8 items)</span>
+                    <span>&#8377;1,69,785</span>
+                </div>
+                <div class="item">
+                    <span>Discount</span>
+                    <span style="color: green;">- &#8377;84,136</span>
+                </div>
+                <div class="item">
+                    <span>Coupons for you</span>
+                    <span style="color: green;">- &#8377;368</span>
+                </div>
+                <div class="item">
+                    <span>Delivery Charges</span>
+                    <span style="color: green;">Free</span>
+                </div>
+                <div class="item">
+                    <span>Secured Packaging Fee</span>
+                    <span>&#8377;176</span>
+                </div>
+                <hr>
+                <div class="item total">
+                    <span>Total Amount</span>
+                    <span>&#8377;85,457</span>
+                </div>
+                <div class="item savings">
+                    <span>You will save &#8377;84,328 on this order</span>
+                </div>
+                <div class="note">
+                    <i class="fas fa-shield-alt fa-2x"></i>
+                    <span>Safe and Secure Payments. Easy returns. 100% Authentic products.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer">
+        <div class="footer-left">
+            Policies: <a href="#">Returns Policy</a> | <a href="#">Terms of use</a> | <a href="#">Security</a> | <a
+                href="#">Privacy</a> | <a href="#">Infringement</a>
+        </div>
+        <div class="footer-right">
+            Need help? Visit the <a href="#">Help Center</a> or <a href="#">Contact Us</a>
+        </div>
+    </div>
+</body>
+
+</html>
